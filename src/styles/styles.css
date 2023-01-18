@@ -9,7 +9,7 @@
   margin: 0 auto;
 }
 
-form {
+form > div {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +21,7 @@ label {
   padding-right: 10px;
 }
 
-form > button {
+form > div > button {
   width: fit-content;
   padding: 5px 10px;
 }
