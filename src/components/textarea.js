@@ -16,8 +16,8 @@ class Textarea extends React.Component {
 
     return (
       <div>
-        <label htmlFor={this.props.id}>{this.props.display}</label>
-        <textarea value={this.props.placehold} id={this.props.id}
+        <label htmlFor={this.props.id}></label>
+        <textarea value={this.props.placehold} placeholder={this.props.display} id={this.props.id}
          onChange={this.handleChange}/>
       </div>
     );
