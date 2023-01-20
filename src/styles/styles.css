@@ -16,6 +16,15 @@ body {
   border-radius: 4px;
 }
 
+.container > div {
+  padding: 25px;
+}
+
+.container p {
+  width: fit-content;
+  text-align: center;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -24,6 +33,10 @@ body {
   background-color: #D7F3EF;
   border-bottom: 2px solid #90DDD3;
   height: 80px;
+}
+
+.header p {
+  width: 200px;
 }
 
 .name {
@@ -39,23 +52,53 @@ body {
 }
 
 .education,
-.work-experience {
+.work-experience,
+.statement {
   display: flex;
   border-top: 3px solid #E6F8F5;
   padding: 25px 50px;
+  gap: 30px;
 }
 
+.education > p,
+.work-experience > p,
+.statement > p {
+  width: 180px;
+  text-align: left;
+}
 
+.education > div {
+  display: grid;
+  grid-template-columns: 140px 140px;
+  grid-template-rows: 30px 30px;
+}
+
+.work-experience > div {
+  display: grid;
+  grid-template-columns: 150px 150px;
+  grid-template-rows: 30px 30px 200px;
+}
+
+.work-experience > div > *:last-child {
+  grid-column: 1 / 3;
+}
+
+.work-experience > div > *:nth-child(odd),
+.education > div > *:nth-child(odd) {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
 
 form textarea {
   resize: none;
   height: 200px;
   width: 300px;
   padding: 4px;
+  display: block;
 }
 
 form input {
-  width: 120px;
+  width: 140px;
   padding: 4px;
   text-align: center;
   outline: none;
@@ -64,13 +107,4 @@ form input {
 button {
   width: fit-content;
   padding: 5px 10px;
-}
-
-.container > div {
-  padding: 25px;
-}
-
-.container p {
-  width: 120px;
-  text-align: center;
 }
