@@ -9,7 +9,7 @@ class Paragraph extends React.Component {
   render() {
 
     return (
-      <p>{this.props.value}</p>
+      <span>{this.props.value}</span>
     );
   }
 }

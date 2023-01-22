@@ -15,11 +15,9 @@ class Input extends React.Component {
   render() {
 
     return (
-      <div>
-        <label htmlFor={this.props.id}></label>
-        <input type='text' value={this.props.placehold} placeholder={this.props.display} id={this.props.id}
-         onChange={this.handleChange}/>
-      </div>
+      <label>
+      <input type='text' value={this.props.placehold} placeholder={this.props.display} maxLength="24"
+        onChange={this.handleChange}/></label>
     );
   }
 }

@@ -62,19 +62,27 @@ class App extends React.Component {
             <div className="education">
               <p>EDUCATION</p>
               <div>
-                <Input placehold={this.state.schoolName} display='School Name' id='schoolName' callback={this.updateInput}/>
-                <Input placehold={this.state.schoolLocation} display='School Location' id='schoolLocation' callback={this.updateInput}/>
-                <Input placehold={this.state.schoolMajor} display='Degree Major' id='schoolMajor' callback={this.updateInput}/>
-                <Input placehold={this.state.schoolStartEndDate} display='Start and End Date' id='schoolStartEndDate' callback={this.updateInput}/>
+                <div>
+                  <Input placehold={this.state.schoolName} display='School Name' id='schoolName' callback={this.updateInput}/>
+                  <Input placehold={this.state.schoolLocation} display='School Location' id='schoolLocation' callback={this.updateInput}/>
+                </div>
+                <div>
+                  <Input placehold={this.state.schoolMajor} display='Degree Major' id='schoolMajor' callback={this.updateInput}/>
+                  <Input placehold={this.state.schoolStartEndDate} display='Start and End Date' id='schoolStartEndDate' callback={this.updateInput}/>
+                </div>
               </div>
             </div>
             <div className="work-experience">
               <p>WORK EXPERIENCE</p>
               <div>
-                <Input placehold={this.state.positionTitle} display='Position Title' id='positionTitle' callback={this.updateInput}/>
-                <Input placehold={this.state.workStartEndDate} display='Start and End Date' id='workStartEndDate' callback={this.updateInput}/>
-                <Input placehold={this.state.companyName} display='Company Name' id='companyName' callback={this.updateInput}/>
-                <Input placehold={this.state.companyLocation} display='Company Location' id='companyLocation' callback={this.updateInput}/>
+                <div>
+                  <Input placehold={this.state.positionTitle} display='Position Title' id='positionTitle' callback={this.updateInput}/>
+                  <Input placehold={this.state.workStartEndDate} display='Start and End Date' id='workStartEndDate' callback={this.updateInput}/>
+                </div>
+                <div>
+                  <Input placehold={this.state.companyName} display='Company Name' id='companyName' callback={this.updateInput}/>
+                  <Input placehold={this.state.companyLocation} display='Company Location' id='companyLocation' callback={this.updateInput}/>
+                </div>
                 <Textarea placehold={this.state.jobDuties} display='Job Duties' id='jobDuties' callback={this.updateInput}/>
               </div>
             </div>
@@ -102,19 +110,27 @@ class App extends React.Component {
           <div className="education">
             <p>EDUCATION</p>
             <div>
-              <Paragraph value={this.state.schoolName} />
-              <Paragraph value={this.state.schoolLocation} />
-              <Paragraph value={this.state.schoolMajor} />
-              <Paragraph value={this.state.schoolStartEndDate} />
+              <div>
+                <Paragraph value={this.state.schoolName} />, 
+                <Paragraph value={this.state.schoolLocation} />
+              </div>
+              <div>
+                <Paragraph value={this.state.schoolMajor} />, 
+                <Paragraph value={this.state.schoolStartEndDate} />
+              </div>
             </div>
           </div>
           <div className="work-experience">
             <p>WORK EXPERIENCE</p>
             <div>
-              <Paragraph value={this.state.positionTitle} />
-              <Paragraph value={this.state.workStartEndDate} />
-              <Paragraph value={this.state.companyName} />
-              <Paragraph value={this.state.companyLocation} />
+              <div>
+                <Paragraph value={this.state.positionTitle} />,
+                <Paragraph value={this.state.workStartEndDate} />
+              </div>
+              <div>
+                <Paragraph value={this.state.companyName} />,
+                <Paragraph value={this.state.companyLocation} />
+              </div>
               <Paragraph value={this.state.jobDuties} />
             </div>
           </div>
