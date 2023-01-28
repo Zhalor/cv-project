@@ -1,17 +1,10 @@
 import React from "react";
 
-class Paragraph extends React.Component {
-  constructor(props){
-    super(props);
-  }
+function Paragraph(props) {
 
-  
-  render() {
-
-    return (
-      <span>{this.props.value}</span>
-    );
-  }
+  return (
+    <span>{props.value}</span>
+  );
 }
 
 export default Paragraph;

@@ -1,62 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "./input";
 import Paragraph from "./paragraph";
 
-class Degree extends React.Component {
-  constructor(props){
-    super(props);
-
-    this.state = ({
-      schoolName: '',
-      schoolLocation: '',
-      schoolMajor: '',
-      schoolStartEndDate: '',
-    });
+function Degree(props) {
   
-    this.updateDegree = this.updateDegree.bind(this);
-  }
+  const [school, setSchool] = useState({
+    schoolName: '',
+    schoolLocation: '',
+    schoolMajor: '',
+    schoolStartEndDate: ''
+  });
 
-  updateDegree(stateField, value) {
-    this.setState({
+  function updateDegree(stateField, value) {
+    setSchool({
+      ...school,
       [stateField]: value,
     });
   }
-
   
-  render() {
-    if(this.props.edit) {
-      return (
-        <div className="education">
-          <p>EDUCATION</p>
+  if(props.edit) {
+    return (
+      <div className="education">
+        <p>EDUCATION</p>
+        <div>
           <div>
-            <div>
-              <Input placehold={this.state.schoolName} display='School Name' id='schoolName' callback={this.updateDegree}/>
-              <Input placehold={this.state.schoolLocation} display='School Location' id='schoolLocation' callback={this.updateDegree}/>
-            </div>
-            <div>
-              <Input placehold={this.state.schoolMajor} display='Degree Major' id='schoolMajor' callback={this.updateDegree}/>
-              <Input placehold={this.state.schoolStartEndDate} display='Start and End Date' id='schoolStartEndDate' callback={this.updateDegree}/>
-            </div>
+            <Input placehold={school.schoolName} display='School Name' id='schoolName' callback={updateDegree}/>
+            <Input placehold={school.schoolLocation} display='School Location' id='schoolLocation' callback={updateDegree}/>
+          </div>
+          <div>
+            <Input placehold={school.schoolMajor} display='Degree Major' id='schoolMajor' callback={updateDegree}/>
+            <Input placehold={school.schoolStartEndDate} display='Start and End Date' id='schoolStartEndDate' callback={updateDegree}/>
           </div>
         </div>
-      );
-    } else {
-      return (
-        <div className="education">
-          <p>EDUCATION</p>
+      </div>
+    );
+  } else {
+    return (
+      <div className="education">
+        <p>EDUCATION</p>
+        <div>
           <div>
-            <div>
-              <Paragraph value={this.state.schoolName} />{", "}
-              <Paragraph value={this.state.schoolLocation} />
-            </div>
-            <div>
-              <Paragraph value={this.state.schoolMajor} />{", "}
-              <Paragraph value={this.state.schoolStartEndDate} />
-            </div>
+            <Paragraph value={school.schoolName} />{", "}
+            <Paragraph value={school.schoolLocation} />
+          </div>
+          <div>
+            <Paragraph value={school.schoolMajor} />{", "}
+            <Paragraph value={school.schoolStartEndDate} />
           </div>
         </div>
-      );
-    }
+      </div>
+    );
   }
 }
 

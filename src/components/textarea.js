@@ -1,27 +1,18 @@
 import React from "react";
 
-class Textarea extends React.Component {
-  constructor(props){
-    super(props);
+function Textarea(props) {
 
-    this.handleChange = this.handleChange.bind(this);
+  function handleChange(e) {
+    props.callback(props.id, e.target.value);
   }
 
-  handleChange(e) {
-    this.props.callback(this.props.id, e.target.value);
-  }
-
-  
-  render() {
-
-    return (
-      <div>
-        <label htmlFor={this.props.id}></label>
-        <textarea value={this.props.placehold} placeholder={this.props.display} id={this.props.id} maxLength="800"
-         onChange={this.handleChange}/>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <label htmlFor={props.id}></label>
+      <textarea value={props.placehold} placeholder={props.display} id={props.id} maxLength="800"
+        onChange={handleChange}/>
+    </div>
+  );
 }
 
 export default Textarea;

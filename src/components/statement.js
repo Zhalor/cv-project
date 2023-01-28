@@ -1,45 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import Textarea from "./textarea";
 import Paragraph from "./paragraph";
 
-class Statement extends React.Component {
-  constructor(props){
-    super(props);
+function Statement(props) {
 
-    this.state = {
-      statement: '',
-    }
+  const [statement, setStatement] = useState('');
 
-    this.updateStatement = this.updateStatement.bind(this);
+  function updateStatement(stateField, value) {
+    setStatement(value);
   }
 
-  updateStatement(stateField, value) {
-    this.setState({
-      [stateField]: value,
-    });
-  }
-
-  
-  render() {
-    if(this.props.edit) {
-      return (
-        <div className="statement">
-          <p>PROFESSIONAL STATEMENT</p>
-          <div>
-            <Textarea placehold={this.state.statement} display='Professional Statement' id='statement' callback={this.updateStatement} />
-          </div>
+  if(props.edit) {
+    return (
+      <div className="statement">
+        <p>PROFESSIONAL STATEMENT</p>
+        <div>
+          <Textarea placehold={statement} display='Professional Statement' id='statement' callback={updateStatement} />
         </div>
-      );
-    } else {
-      return (
-        <div className="statement">
-          <p>PROFESSIONAL STATEMENT</p>
-          <div>
-            <Paragraph value={this.state.statement} />
-          </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="statement">
+        <p>PROFESSIONAL STATEMENT</p>
+        <div>
+          <Paragraph value={statement} />
         </div>
-      );
-    }
+      </div>
+    );
   }
 }
 

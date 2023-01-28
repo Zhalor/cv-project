@@ -1,25 +1,16 @@
 import React from "react";
 
-class Input extends React.Component {
-  constructor(props){
-    super(props);
+function Input(props) {
 
-    this.handleChange = this.handleChange.bind(this);
+  function handleChange(e) {
+    props.callback(props.id, e.target.value);
   }
 
-  handleChange(e) {
-    this.props.callback(this.props.id, e.target.value);
-  }
-
-  
-  render() {
-
-    return (
-      <label>
-      <input type='text' value={this.props.placehold} placeholder={this.props.display} maxLength="24"
-        onChange={this.handleChange}/></label>
-    );
-  }
+  return (
+    <label>
+    <input type='text' value={props.placehold} placeholder={props.display} maxLength="24"
+      onChange={handleChange}/></label>
+  );
 }
 
 export default Input;

@@ -1,45 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "./input";
 import Paragraph from "./paragraph";
 
-class Header extends React.Component {
-  constructor(props){
-    super(props);
+function Header(props) {
 
-    this.state = {
+    const [header, setHeader] = useState({
       location: '',
       phoneNumber: '',
       email: '',
-    }
+    });
 
-    this.updateHeader = this.updateHeader.bind(this);
-  }
-
-  updateHeader(stateField, value) {
-    this.setState({
+  function updateHeader(stateField, value) {
+    setHeader({
+      ...header,
       [stateField]: value,
     });
   }
 
-  
-  render() {
-    if(this.props.edit) {
-      return (
-        <div className="header">
-          <Input placehold={this.state.location} display='Location' id='location' callback={this.updateHeader}/>
-          <Input placehold={this.state.phoneNumber} display='Phone Number' id='phoneNumber' callback={this.updateHeader}/>
-          <Input placehold={this.state.email} display='Email Address' id='email' callback={this.updateHeader}/>
-        </div>
-      );
-    } else {
-      return (
-        <div className="header">
-          <Paragraph value={this.state.location} />
-          <Paragraph value={this.state.phoneNumber} />
-          <Paragraph value={this.state.email} />
-        </div>
-      );
-    }
+  if(props.edit) {
+    return (
+      <div className="header">
+        <Input placehold={header.location} display='Location' id='location' callback={updateHeader}/>
+        <Input placehold={header.phoneNumber} display='Phone Number' id='phoneNumber' callback={updateHeader}/>
+        <Input placehold={header.email} display='Email Address' id='email' callback={updateHeader}/>
+      </div>
+    );
+  } else {
+    return (
+      <div className="header">
+        <Paragraph value={header.location} />
+        <Paragraph value={header.phoneNumber} />
+        <Paragraph value={header.email} />
+      </div>
+    );
   }
 }
 

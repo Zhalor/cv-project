@@ -1,39 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "./input";
 import Paragraph from "./paragraph";
 
-class Name extends React.Component {
-  constructor(props){
-    super(props);
+function Name(props) {
 
-    this.state = {
-      fullName: '',
-    }
+  const [fullName, setFullName] = useState('');
 
-    this.updateName = this.updateName.bind(this);
+  function UpdateFullName(stateField, value) {
+    setFullName(value);
   }
-
-  updateName(stateField, value) {
-    this.setState({
-      [stateField]: value,
-    });
-  }
-
   
-  render() {
-    if(this.props.edit) {
-      return (
-        <div className="name">
-          <Input placehold={this.state.fullName} display='Full Name' id='fullName' callback={this.updateName}/>
-        </div>
-      );
-    } else {
-      return (
-        <div className="name">
-          <Paragraph value={this.state.fullName} />
-        </div>
-      );
-    }
+  if(props.edit) {
+    return (
+      <div className="name">
+        <Input placehold={fullName} display='Full Name' id='fullName' callback={UpdateFullName}/>
+      </div>
+    );
+  } else {
+    return (
+      <div className="name">
+        <Paragraph value={fullName} />
+      </div>
+    );
   }
 }
 
